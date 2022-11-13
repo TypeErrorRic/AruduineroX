@@ -5,9 +5,13 @@ app = express();
 const port = 3000;
 const Hostname = 'localhost';
 
-app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname, 'views/index.html'));
-})
+//Configuraciones
+app.set('views', (path.join(__dirname, 'views')));
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
+
+//Rutas
+app.use(require('./routes/index.js'));
 
 app.listen(port, Hostname, function (req, res) {
     console.log(`http//:${Hostname}:${port}/`);
