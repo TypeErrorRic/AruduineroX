@@ -1,0 +1,10 @@
+<%- include('partials/Header'); %>
+    <h1>
+        Bienvenido <%= title %>
+    </h1>
+    <ul>
+        <%for(let i=0;i<bienvenida.length;i++) {%>
+            <li><%= bienvenida[i].Nombre%>. puntos <%= bienvenida[i].points %></li>
+        <% } %>
+    </ul>
+<%- include('partials/footer'); %>
