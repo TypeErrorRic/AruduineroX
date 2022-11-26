@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 
 //Traer rutas:
 const Index = require('./routes/index')
+const links = require('./routes/links');
 
 //Middlewares:
 app.use(express.json());
@@ -21,6 +22,7 @@ app.use(morgan('dev'))
 
 const Hostname = 'localhost';
 app.use(Index);
+app.use(links);
 
 //Carppeta estaticas:
 app.use('/public', express.static(path.join(__dirname, '/public')))
